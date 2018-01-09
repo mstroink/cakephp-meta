@@ -506,7 +506,7 @@ class MetaHelper extends Helper {
 		}
 
 		if ($header) {
-			if (!isset($this->meta[$header]) || $this->meta[$header] === false) {
+			if (!isset($this->meta[$header]) || $this->meta[$header] === false || $header == 'className') {
 				return '';
 			}
 
