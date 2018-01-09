@@ -397,11 +397,17 @@ class MetaHelper extends Helper {
 			return '';
 		}
 		$value = $this->meta['custom'][$name];
+		$attributeName = 'name';
+
+        if (preg_match('/(fb|og):/', $name) === 1) {
+            $attributeName = 'property';
+        }
 
 		$array = [
-			'name' => $name,
-			'content' => $value
+			$attributeName => $name,
+			'content' => $value,
 		];
+
 		return $this->Html->meta($array);
 	}
 

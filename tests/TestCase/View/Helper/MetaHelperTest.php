@@ -394,6 +394,21 @@ class MetaHelperTest extends TestCase {
 		$this->assertTextEquals($expected, $result);
 	}
 
+
+	public function testMetaCustomWithPrefix() {
+		$result = $this->Meta->custom('og:title', 'This is an article');
+		$expected = '<meta property="og:title" content="This is an article"/>';
+		$this->assertEquals($expected, $result);
+
+		$result = $this->Meta->custom('fb:page_id', '1234');
+		$expected = '<meta property="fb:page_id" content="1234"/>';
+		$this->assertEquals($expected, $result);
+
+		$result = $this->Meta->custom('twitter:card', 'summary');
+		$expected = '<meta name="twitter:card" content="summary"/>';
+		$this->assertEquals($expected, $result);
+	}
+
 	/**
 	 * TearDown method
 	 *
