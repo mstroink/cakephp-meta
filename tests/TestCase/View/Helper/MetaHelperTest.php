@@ -409,6 +409,15 @@ class MetaHelperTest extends TestCase {
 		$this->assertEquals($expected, $result);
 	}
 
+	public function testMetaTitle() {
+		$result = $this->Meta->title('Foo page');
+		$expected = '<title>Foo page</title>';
+		$this->assertEquals($expected, $result);
+
+		$result = $this->Meta->title('Bar website', true);
+		$expected = '<title>Foo page - Bar website</title>';
+		$this->assertEquals($expected, $result);
+	}
 	/**
 	 * TearDown method
 	 *

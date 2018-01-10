@@ -118,8 +118,11 @@ class MetaHelper extends Helper {
 	 * @param string|null $value
 	 * @return string
 	 */
-	public function title($value = null) {
+	public function title($value = null, $append = false) {
 		if ($value !== null) {
+			if ($append && !empty($this->meta['title'])) {
+                $value = $this->meta['title'] . ' - ' . $value;
+            }
 			$this->meta['title'] = $value;
 		}
 
